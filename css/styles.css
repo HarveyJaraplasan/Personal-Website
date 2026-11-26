@@ -1,0 +1,441 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+:root{--orange:#e98543;--white:#f4f4f4;--muted:#bdbdbd}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;background:#080808;color:var(--white);font-family:Montserrat,Arial,sans-serif}
+body{min-height:100vh;display:grid;place-items:center;padding:24px;background-image:url('../images/Background/BG-1.gif');background-repeat:no-repeat;background-size:cover;background-position:center}
+.portfolio{width:min(1280px,100%)}
+.panel{height:min(780px,88vh);min-height:600px;position:relative;overflow:hidden;border-radius:30px;background:#111;box-shadow:0 24px 65px #000b,0 0 0 1px #ffffff12}
+.panel:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,#252525e9 0%,#151515ed 46%,#030303ed 100%)}
+.brand{position:absolute;z-index:8;top:28px;left:34px;display:flex;align-items:center;gap:9px}
+.brand-mark{font-size:35px;font-weight:800;letter-spacing:-4px}.brand-mark span{color:var(--orange)}
+.brand-name{font-size:9px;line-height:1.25;letter-spacing:1.3px;font-weight:700}.brand-name small{color:#888;font-size:8px}
+.top-nav{position:absolute;z-index:9;top:36px;left:24%;display:flex;gap:6px;max-width:69%;overflow-x:auto;scrollbar-width:none}.top-nav::-webkit-scrollbar{display:none}
+.nav-link{white-space:nowrap;text-decoration:none;border:1px solid #ffffff24;background:#ffffff08;color:#aaa;padding:8px 11px;border-radius:99px;font:600 10px Montserrat,sans-serif;transition:.2s}
+.nav-link.active,.nav-link:hover{color:#111;border-color:var(--orange);background:var(--orange)}
+.slides{position:absolute;inset:0;z-index:3}
+.slide{display:none;position:absolute;inset:0;align-items:center}.slide.active{display:flex}
+.content{position:relative;z-index:4;width:58%;margin-left:8.5%;padding:110px 0 100px}
+.eyebrow{font-size:16px;letter-spacing:4px;font-weight:700;margin:0 0 20px}
+h1{font-size:clamp(34px,4.3vw,55px);line-height:1.08;margin:0 0 10px;letter-spacing:-1.4px}
+h2{font-size:clamp(24px,3vw,37px);margin:0;line-height:1.3;color:#ddd;font-weight:600}h2 em{color:var(--orange);font-style:normal}
+.description{margin-top:25px;max-width:510px;font-size:14px;color:#ccc;line-height:1.9}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;max-width:520px}.tag{border:1px solid #ffffff25;color:#ddd;border-radius:7px;padding:8px 11px;font-size:11px}
+.buttons{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}.button{display:inline-block;border-radius:9px;padding:14px 20px;min-width:130px;text-align:center;text-decoration:none;font-weight:600;font-size:12px;color:#111;background:var(--orange);border:1px solid var(--orange);transition:.2s;cursor:pointer}.button.outlined{color:var(--orange);background:transparent}.button:hover{transform:translateY(-3px);filter:brightness(1.12)}
+.portrait{position:absolute;right:12%;bottom:0;height:88%;width:37%;z-index:2;background:linear-gradient(to bottom,transparent 55%,#111 100%),url('../images/MyFace1.jfif');background-size:cover;background-position:center 12%;filter:grayscale(1);opacity:.6;mask-image:linear-gradient(to bottom,#000 0%,#000 78%,transparent 100%)}
+.navigation{position:absolute;z-index:10;right:3.5%;top:11%;bottom:8%;width:105px;display:flex;flex-direction:column;justify-content:space-between;align-items:center}
+.navigation button{color:#eee;background:none;border:0;cursor:pointer;padding:10px;font-size:16px;transition:color .2s,transform .2s}.navigation button:hover{color:var(--orange);transform:scale(1.12)}
+.horizontal{display:flex;align-items:center;justify-content:space-between;width:100%;gap:5px;border-bottom:1px solid #ffffff14;padding-bottom:8px}
+.main-indicator{display:flex;flex-direction:column;align-items:center;gap:4px}#mainNumber{font-size:23px;font-weight:600}#mainTitle{font-size:8px;color:#aaa;text-transform:uppercase;letter-spacing:1px;text-align:center}
+.vertical{flex:1;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding-top:14px}.vertical-indicator{display:flex;flex-direction:column;align-items:center;gap:10px}#subNumber{font-size:35px;font-weight:500}.accent-line{width:2px;height:42px;background:var(--orange)}#subTitle{writing-mode:vertical-rl;transform:rotate(180deg);font-size:12px;letter-spacing:.5px}.vertical-indicator small{color:#999;font-size:10px}
+/* Social links are anchored to the bottom-left corner on every page. */
+.socials{position:absolute!important;z-index:12;left:34px!important;right:auto!important;bottom:20px!important;display:flex;align-items:center;gap:16px}.socials a{color:#888;text-decoration:none;font-size:15px;transition:color .2s}.socials a:hover{color:var(--orange)}
+.progress{position:absolute;z-index:11;left:0;bottom:0;height:2px;background:var(--orange);transition:width .35s}
+.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:520px;margin-top:18px}.contact-form label{font-size:10px;color:#bbb;display:flex;flex-direction:column;gap:5px}.contact-form input,.contact-form textarea{width:100%;padding:11px 12px;border:1px solid #ffffff24;border-radius:8px;background:#101010;color:#eee;font:12px Montserrat,Arial}.contact-form textarea{resize:vertical}.contact-form .full{grid-column:1/-1}.contact-form button{justify-self:start}
+.gallery-grid{position:relative;z-index:4;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;width:100%;max-height:65vh;overflow-y:auto;padding:10px 14px 20px}
+.gallery-card{border:1px solid #ffffff1c;background:#141414;border-radius:12px;overflow:hidden;cursor:pointer;transition:transform .2s,border-color .2s}.gallery-card:hover{transform:translateY(-3px);border-color:var(--orange)}.gallery-card img{width:100%;height:160px;object-fit:cover;display:block}.gallery-card figcaption{padding:10px 12px;color:#ddd;font-size:11px;line-height:1.5}.gallery-card small{display:block;color:#999;margin-top:4px;font-size:10px}
+.lightbox{position:fixed;z-index:1000;inset:0;background:#000e;display:none;align-items:center;justify-content:center;padding:24px}.lightbox.open{display:flex}.lightbox img{max-width:95vw;max-height:85vh;object-fit:contain;border-radius:8px}.lightbox-close{position:absolute;right:25px;top:20px;color:white;background:#222;border:1px solid #555;border-radius:50%;width:42px;height:42px;font-size:20px;cursor:pointer}
+@media(max-width:850px){body{padding:12px}.panel{height:90vh;min-height:620px;border-radius:22px}.brand{top:18px;left:22px}.top-nav{top:78px;left:4%;max-width:92%;}.nav-link{padding:7px 9px;font-size:9px}.content{margin-left:6%;width:78%;padding:140px 0 120px}.portrait{right:-5%;width:70%;height:73%;opacity:.2}.description{font-size:13px;max-width:350px}.navigation{right:2%;width:60px;top:17%;bottom:10%}.horizontal{flex-direction:column;gap:1px}#mainNumber{font-size:20px}#mainTitle{font-size:7px}#subNumber{font-size:28px}.accent-line{height:28px}.socials{left:22px!important;bottom:18px!important;gap:13px}.gallery-grid{max-height:58vh;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:9px}.gallery-card img{height:125px}.contact-form{grid-template-columns:1fr;max-height:46vh;overflow:auto}.contact-form .full{grid-column:auto}}
+@media(max-width:480px){.content{width:82%}.eyebrow{font-size:13px;letter-spacing:3px}h1{font-size:32px}h2{font-size:22px}.description{max-width:260px}.buttons{flex-direction:column;align-items:flex-start}.button{min-width:125px}}
+
+
+/* Compatibility and layout fixes for the JavaScript-rendered Home page */
+#slideContent{position:absolute;z-index:4;left:8.5%;top:0;bottom:0;width:58%;padding:120px 0 105px;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#e98543 #171717}
+#slideContent .kicker{font-size:13px;letter-spacing:3.5px;font-weight:700;margin:0 0 18px;color:#f4f4f4}
+#slideContent h1{font-size:clamp(34px,4.3vw,55px);line-height:1.08;margin:0 0 10px;letter-spacing:-1.4px}
+#slideContent h2{font-size:clamp(24px,3vw,37px);margin:0;line-height:1.3;color:#ddd;font-weight:600}
+#slideContent h2 em{color:var(--orange);font-style:normal}
+#slideContent .copy{margin-top:22px;max-width:510px;font-size:14px;color:#ccc;line-height:1.9}
+#slideContent .content-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;max-width:520px}
+#slideContent .tag{border:1px solid #ffffff25;color:#ddd;border-radius:7px;padding:8px 11px;font-size:11px}
+#slideContent .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+#slideContent .action{display:inline-block;border-radius:9px;padding:13px 18px;text-align:center;text-decoration:none;font-weight:600;font-size:12px;color:#111;background:var(--orange);border:1px solid var(--orange)}
+#slideContent .action.secondary{color:var(--orange);background:transparent}
+#slideContent.switching{opacity:.4;transition:opacity .15s}
+#slideContent .photo-strip{display:flex;gap:10px;margin-top:20px;max-width:500px}
+#slideContent .photo-strip img{width:30%;height:110px;object-fit:cover;border-radius:10px;border:1px solid #ffffff22}
+.top-nav .nav-pill{white-space:nowrap;text-decoration:none;border:1px solid #ffffff24;background:#ffffff08;color:#aaa;padding:8px 11px;border-radius:99px;font:600 10px Montserrat,sans-serif;cursor:pointer;transition:.2s}
+.top-nav .nav-pill.active,.top-nav .nav-pill:hover{color:#111;border-color:var(--orange);background:var(--orange)}
+/* Gallery-specific layout: content scrolls without colliding with controls */
+.gallery-page-content{position:absolute!important;left:0!important;right:0;top:0;bottom:0;margin:0!important;width:auto!important;padding:115px 13% 105px 7%!important;overflow-y:auto;scrollbar-width:thin;scrollbar-color:#e98543 #171717}
+.gallery-page-content .description{max-width:650px}
+.gallery-page-content .gallery-grid{max-height:none;overflow:visible;padding:8px 0 24px;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));}
+.gallery-page-content .gallery-card img{height:clamp(115px,17vw,180px)}
+@media(max-width:850px){
+ #slideContent{left:6%;width:78%;padding:140px 0 120px}
+ #slideContent .copy{font-size:13px;max-width:350px}
+ #slideContent .photo-strip img{height:85px}
+ .gallery-page-content{padding:145px 16% 115px 6%!important}
+ .gallery-page-content .gallery-grid{grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:9px}
+ .gallery-page-content .gallery-card img{height:115px}
+}
+@media(max-width:480px){
+ #slideContent{width:82%;padding-top:142px}
+ #slideContent .kicker{font-size:11px;letter-spacing:2.5px}
+ #slideContent h1{font-size:32px}
+ #slideContent h2{font-size:22px}
+ #slideContent .copy{max-width:255px;font-size:12px;line-height:1.7}
+ #slideContent .actions{flex-direction:column;align-items:flex-start}
+ #slideContent .action{min-width:125px}
+ .gallery-page-content{padding:145px 18% 110px 6%!important}
+ .gallery-page-content .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+/* Gallery categories and responsive card layout */
+.gallery-page-content .gallery-sections{display:flex;flex-direction:column;gap:24px;margin-top:20px;padding-bottom:30px}
+.gallery-page-content .gallery-section{width:100%}
+.gallery-page-content .gallery-section h3{font-size:clamp(16px,1.8vw,22px);margin:0 0 12px;color:#f0f0f0;border-left:3px solid var(--orange);padding-left:12px}
+.gallery-page-content .gallery-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;justify-content:start;width:100%;max-height:none;overflow:visible;padding:0 0 8px}
+.gallery-page-content .gallery-card{min-width:0;margin:0;display:flex;flex-direction:column}
+.gallery-page-content .gallery-card img{width:100%;height:clamp(150px,18vw,230px);object-fit:cover;display:block}
+.gallery-page-content .gallery-card figcaption{min-height:72px;padding:12px 14px}
+.gallery-page-content .gallery-card figcaption strong{display:block;color:#f1f1f1;font-size:12px;font-weight:700}
+.gallery-page-content .gallery-card figcaption small{font-size:10px;line-height:1.55}
+.gallery-page-content .gallery-card img{cursor:zoom-in}
+/* Lightbox with title and description below the enlarged image */
+.lightbox{padding:20px;overflow:auto}
+.lightbox-panel{position:relative;display:flex;flex-direction:column;align-items:center;max-width:min(1000px,96vw);max-height:95vh;padding:20px;background:#121212;border:1px solid #ffffff24;border-radius:16px;overflow:auto}
+.lightbox-panel img{max-width:100%;max-height:70vh;object-fit:contain;display:block}
+.lightbox-caption{width:min(100%,850px);padding:14px 8px 4px;text-align:left}
+.lightbox-caption h3{margin:0 0 8px;color:#fff;font-size:18px}
+.lightbox-caption p{margin:0;color:#bbb;font-size:13px;line-height:1.7}
+.lightbox-close{position:sticky;top:0;align-self:flex-end;z-index:2;margin:-12px -12px 4px 0}
+
+/* Gallery: left-anchored, row-major grid (left to right, then top to bottom). */
+body.page-gallery .portrait{display:none !important}
+body.page-gallery .navigation .vertical,
+body.page-contact .navigation .vertical{display:none !important}
+body.page-gallery .gallery-page-content{
+  position:absolute !important;
+  left:6% !important;
+  right:auto !important;
+  top:0 !important;
+  bottom:0 !important;
+  width:67% !important;
+  margin:0 !important;
+  padding:115px 0 105px !important;
+  overflow-y:auto !important;
+  scrollbar-width:thin;
+  scrollbar-color:#e98543 #171717;
+}
+body.page-gallery .gallery-page-content .description{max-width:650px}
+body.page-gallery .gallery-page-content .gallery-sections{
+  display:flex !important;
+  flex-direction:column !important;
+  align-items:stretch !important;
+  width:100% !important;
+  margin:20px 0 0 !important;
+  padding:0 0 30px !important;
+  gap:24px !important;
+}
+body.page-gallery .gallery-page-content .gallery-section{
+  width:100% !important;
+  margin:0 !important;
+}
+body.page-gallery .gallery-page-content .gallery-section h3{
+  margin:0 0 12px !important;
+  font-size:clamp(16px,1.8vw,22px);
+}
+body.page-gallery .gallery-page-content .gallery-grid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  grid-auto-flow:row !important;
+  justify-content:start !important;
+  justify-items:stretch !important;
+  align-content:start !important;
+  width:100% !important;
+  max-height:none !important;
+  overflow:visible !important;
+  margin:0 !important;
+  padding:0 0 8px !important;
+  gap:14px !important;
+}
+body.page-gallery .gallery-page-content .gallery-card{
+  display:flex !important;
+  flex-direction:column !important;
+  width:100% !important;
+  min-width:0 !important;
+  margin:0 !important;
+}
+body.page-gallery .gallery-page-content .gallery-card img{
+  display:block;
+  width:100% !important;
+  height:clamp(145px,16vw,205px) !important;
+  object-fit:cover;
+}
+body.page-gallery .gallery-page-content .gallery-card figcaption{min-height:72px;padding:12px 14px}
+
+/* Contact: restore the large portrait on the right while keeping vertical controls hidden. */
+body.page-contact .portrait{
+  display:block !important;
+  visibility:visible !important;
+  opacity:.6 !important;
+  right:12% !important;
+  bottom:0 !important;
+  width:37% !important;
+  height:88% !important;
+  z-index:2 !important;
+}
+body.page-contact .content{width:54%;margin-left:8.5%}
+body.page-contact .contact-form{max-width:520px}
+
+@media(max-width:850px){
+  body.page-gallery .gallery-page-content{left:5% !important;width:80% !important;padding:145px 0 115px !important}
+  body.page-gallery .gallery-page-content .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:10px !important}
+  body.page-gallery .gallery-page-content .gallery-card img{height:clamp(130px,22vw,180px) !important}
+  body.page-contact .portrait{right:-5% !important;width:70% !important;height:73% !important;opacity:.2 !important}
+  body.page-contact .content{width:78%;margin-left:6%}
+}
+@media(max-width:480px){
+  body.page-gallery .gallery-page-content{left:5% !important;width:88% !important;padding:145px 0 110px !important}
+  body.page-gallery .gallery-page-content .gallery-grid{grid-template-columns:minmax(0,1fr) !important;gap:12px !important}
+  body.page-gallery .gallery-page-content .gallery-card img{height:210px !important}
+  body.page-contact .portrait{right:-8% !important;width:82% !important;height:66% !important;opacity:.15 !important}
+  body.page-contact .content{width:84%;margin-left:6%;padding-top:145px}
+  .lightbox-panel{padding:12px}
+  .lightbox-panel img{max-height:62vh}
+}
+
+/* Latest requested layout: socials bottom-right; gallery scroll track on the right; 4 cards per desktop row. */
+.socials{left:auto!important;right:34px!important;bottom:20px!important;}
+body.page-gallery .gallery-page-content{
+  left:6%!important; right:17%!important; width:auto!important;
+  top:118px!important; bottom:86px!important;
+  padding:0 12px 24px 0!important; margin:0!important;
+  overflow-y:auto!important; overflow-x:hidden!important;
+  scrollbar-width:thin!important; scrollbar-color:var(--orange) #171717!important;
+}
+body.page-gallery .gallery-page-content .gallery-sections{width:100%!important;}
+body.page-gallery .gallery-page-content .gallery-grid{
+  display:grid!important; grid-template-columns:repeat(4,minmax(0,1fr))!important;
+  width:100%!important; gap:12px!important; justify-content:start!important;
+}
+body.page-gallery .gallery-page-content .gallery-card{width:100%!important;min-width:0!important;margin:0!important;}
+body.page-gallery .gallery-page-content .gallery-card img{width:100%!important;height:clamp(100px,13vw,170px)!important;object-fit:cover!important;}
+@media(max-width:1000px){
+ body.page-gallery .gallery-page-content{right:17%!important;}
+ body.page-gallery .gallery-page-content .gallery-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;}
+}
+@media(max-width:700px){
+ .socials{right:18px!important;left:auto!important;bottom:16px!important;}
+ body.page-gallery .gallery-page-content{left:5%!important;right:15%!important;top:145px!important;bottom:100px!important;padding-right:8px!important;}
+ body.page-gallery .gallery-page-content .gallery-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:10px!important;}
+}
+@media(max-width:420px){body.page-gallery .gallery-page-content .gallery-grid{grid-template-columns:minmax(0,1fr)!important;}}
+
+/* Independent featured images for each portfolio page. Replace each image file separately. */
+body.page-index .portrait{background-image:linear-gradient(to bottom,transparent 55%,#111 100%),url('../images/Hero/home-photo.jfif')!important}
+body.page-about .portrait{background-image:linear-gradient(to bottom,transparent 55%,#111 100%),url('../images/Hero/about-photo.jpg')!important}
+body.page-hobbies .portrait{background-image:linear-gradient(to bottom,transparent 55%,#111 100%),url('../images/Hero/hobbies-photo.jfif')!important}
+body.page-favorite .portrait{background-image:linear-gradient(to bottom,transparent 55%,#111 100%),url('../images/Hero/favorites-photo.jpg')!important}
+body.page-dreams .portrait{background-image:linear-gradient(to bottom,transparent 55%,#111 100%),url('../images/Hero/favorites-photo-1.jpg')!important}
+
+
+/* Personal detail chips: consistent rounded labels beneath each slide description. */
+.tags{display:flex;flex-wrap:wrap;align-items:flex-start;gap:8px;margin-top:20px;max-width:560px}
+.tag{display:inline-flex;align-items:center;min-height:32px;padding:8px 12px;border:1px solid #ffffff2b;border-radius:9px;background:#ffffff08;color:#e6e6e6;font-size:11px;line-height:1.35;white-space:normal}
+.tag:hover{border-color:var(--orange);background:#e9854312}
+/* Keep longer tag groups and contact details accessible on short viewports. */
+.slide>.content{max-height:100%;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--orange) #171717}
+body.page-contact .content{max-height:100%;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--orange) #171717}
+/* Personal detail chips: consistent rounded labels beneath each slide description. */
+.tags{display:flex;flex-wrap:wrap;align-items:flex-start;gap:8px;margin-top:20px;max-width:560px}
+.tag{display:inline-flex;align-items:center;min-height:32px;padding:8px 12px;border:1px solid #ffffff2b;border-radius:9px;background:#ffffff08;color:#e6e6e6;font-size:11px;line-height:1.35;white-space:normal}
+.tag:hover{border-color:var(--orange);background:#e9854312}
+/* Keep longer tag groups and contact details accessible on short viewports. */
+.slide>.content{max-height:100%;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--orange) #171717}
+body.page-contact .content{max-height:100%;overflow-y:auto;scrollbar-width:thin;scrollbar-color:var(--orange) #171717}
+
+/* Close button positioned inside the lightbox panel (neutral original styling). */
+.lightbox-panel{position:relative!important;}
+.lightbox-close{position:absolute!important;top:8px!important;right:8px!important;left:auto!important;bottom:auto!important;z-index:3!important;margin:0!important;width:42px!important;height:42px!important;display:grid!important;place-items:center!important;padding:0!important;color:#eee!important;background:#222!important;border:1px solid #555!important;border-radius:50%!important;box-shadow:none!important;font-size:25px!important;font-weight:500!important;line-height:1!important;cursor:pointer!important;}
+.lightbox-close:hover,.lightbox-close:focus-visible{background:#333!important;border-color:#777!important;outline:2px solid #ddd!important;outline-offset:2px!important}
+
+/* Requested contact-page layout: viewport-fit with no page/form scrollbars. */
+html:has(body.page-contact), body.page-contact{overflow:hidden!important;min-height:100vh!important;height:100vh!important;}
+body.page-contact{padding:0!important;display:block!important;}
+body.page-contact .portfolio{width:100vw!important;height:100vh!important;}
+body.page-contact .panel{width:100%;height:100vh!important;min-height:0!important;max-height:100vh!important;border-radius:18px!important;overflow:hidden!important;}
+body.page-contact .slide.active{align-items:flex-start!important;}
+body.page-contact .content{width:43%!important;margin-left:8.3%!important;padding:100px 0 24px!important;max-height:calc(100vh - 100px)!important;overflow:hidden!important;}
+body.page-contact .description{max-width:520px!important;line-height:1.7!important;margin-top:22px!important;}
+body.page-contact .contact-form{grid-template-columns:1fr 1fr!important;gap:10px!important;max-width:520px!important;margin-top:18px!important;max-height:none!important;overflow:visible!important;}
+body.page-contact .contact-form .full{grid-column:1/-1!important;}
+body.page-contact .contact-form textarea{height:84px!important;min-height:84px!important;resize:none!important;}
+body.page-contact .portrait{right:12%!important;width:37%!important;height:88%!important;opacity:.6!important;}
+body.page-contact .socials{left:auto!important;right:34px!important;bottom:20px!important;}
+body.page-contact .navigation{right:3.5%!important;top:11%!important;bottom:auto!important;width:105px!important;}
+@media(max-width:850px){
+ body.page-contact .panel{height:100vh!important;min-height:0!important;}
+ body.page-contact .content{margin-left:5%!important;width:78%!important;padding-top:135px!important;max-height:calc(100vh - 140px)!important;}
+ body.page-contact .portrait{right:-5%!important;width:70%!important;height:73%!important;opacity:.18!important;}
+ body.page-contact .navigation{right:2%!important;top:17%!important;width:60px!important;}
+ body.page-contact .contact-form{grid-template-columns:1fr 1fr!important;gap:8px!important;}
+ body.page-contact .contact-form input{padding:9px!important;}
+}
+@media(max-width:520px){
+ body.page-contact .content{width:86%!important;padding-top:145px!important;}
+ body.page-contact .description{font-size:12px!important;line-height:1.6!important;}
+ body.page-contact .contact-form{grid-template-columns:1fr!important;}
+ body.page-contact .contact-form .full{grid-column:auto!important;}
+ body.page-contact .contact-form textarea{height:68px!important;min-height:68px!important;}
+ body.page-contact .navigation{width:44px!important;}
+}
+/* Gallery close control sits just outside the panel's upper-right corner. */
+.lightbox{overflow:visible!important;padding:24px!important;}
+.lightbox-panel{position:relative!important;margin:12px!important;overflow:visible!important;}
+.lightbox-close{position:absolute!important;top:-16px!important;right:-16px!important;left:auto!important;bottom:auto!important;z-index:5!important;margin:0!important;}
+
+/* Contact page: restore the same centered, framed portfolio panel as the other pages. */
+body.page-contact{padding:24px!important;display:grid!important;place-items:center!important;min-height:100vh!important;height:auto!important;overflow:auto!important;}
+body.page-contact .portfolio{width:min(1280px,100%)!important;height:auto!important;}
+body.page-contact .panel{height:min(780px,88vh)!important;min-height:600px!important;max-height:none!important;width:100%!important;border-radius:30px!important;overflow:hidden!important;}
+body.page-contact .slide.active{align-items:center!important;}
+body.page-contact .content{position:relative!important;left:auto!important;top:auto!important;bottom:auto!important;width:54%!important;margin-left:8.5%!important;padding:110px 0 100px!important;max-height:calc(88vh - 70px)!important;overflow-y:auto!important;scrollbar-width:thin!important;scrollbar-color:var(--orange) #171717!important;}
+body.page-contact .portrait{right:12%!important;bottom:0!important;width:37%!important;height:88%!important;opacity:.6!important;}
+body.page-contact .contact-form{max-width:520px!important;max-height:none!important;overflow:visible!important;}
+@media(max-width:850px){body.page-contact{padding:12px!important;}body.page-contact .panel{height:90vh!important;min-height:620px!important;border-radius:22px!important;}body.page-contact .content{margin-left:6%!important;width:78%!important;padding:140px 0 120px!important;max-height:calc(90vh - 120px)!important;}body.page-contact .portrait{right:-5%!important;width:70%!important;height:73%!important;opacity:.2!important;}}
+@media(max-width:480px){body.page-contact .content{width:82%!important;padding-top:140px!important;}body.page-contact .contact-form{grid-template-columns:1fr!important;}body.page-contact .contact-form .full{grid-column:auto!important;}}
+
+/* Contact page: match the centered framed panel and fit the form without scrolling. */
+body.page-contact{padding:24px!important;display:grid!important;place-items:center!important;min-height:100vh!important;height:100vh!important;overflow:hidden!important;}
+body.page-contact .portfolio{width:min(1280px,100%)!important;height:auto!important;}
+body.page-contact .panel{height:min(780px,88vh)!important;min-height:0!important;max-height:88vh!important;width:100%!important;border-radius:30px!important;overflow:hidden!important;}
+body.page-contact .slide.active{align-items:center!important;}
+body.page-contact .content{position:absolute!important;left:0!important;top:0!important;bottom:0!important;width:48%!important;margin-left:8.5%!important;padding:105px 0 85px!important;max-height:none!important;overflow:hidden!important;}
+body.page-contact .description{max-width:510px!important;margin-top:18px!important;font-size:13px!important;line-height:1.65!important;}
+body.page-contact .contact-form{grid-template-columns:1fr 1fr!important;gap:9px!important;max-width:510px!important;margin-top:15px!important;max-height:none!important;overflow:visible!important;}
+body.page-contact .contact-form label{font-size:9px!important;gap:4px!important;}
+body.page-contact .contact-form input{padding:9px 11px!important;}
+body.page-contact .contact-form textarea{height:74px!important;min-height:74px!important;max-height:74px!important;resize:none!important;}
+body.page-contact .contact-form .full{grid-column:1/-1!important;}
+body.page-contact .portrait{right:12%!important;bottom:0!important;width:37%!important;height:88%!important;opacity:.6!important;}
+body.page-contact .navigation{right:3.5%!important;top:11%!important;bottom:auto!important;width:105px!important;}
+body.page-contact .socials{left:auto!important;right:34px!important;bottom:20px!important;}
+@media(max-width:850px){
+ body.page-contact{padding:12px!important;}
+ body.page-contact .panel{height:90vh!important;max-height:90vh!important;border-radius:22px!important;}
+ body.page-contact .content{margin-left:6%!important;width:78%!important;padding:125px 0 75px!important;}
+ body.page-contact .description{font-size:12px!important;max-width:360px!important;}
+ body.page-contact .portrait{right:-5%!important;width:70%!important;height:73%!important;opacity:.2!important;}
+ body.page-contact .navigation{right:2%!important;top:17%!important;width:60px!important;}
+}
+@media(max-width:520px){
+ body.page-contact .content{width:82%!important;padding-top:135px!important;}
+ body.page-contact .description{font-size:11px!important;line-height:1.55!important;max-width:280px!important;}
+ body.page-contact .contact-form{grid-template-columns:1fr!important;gap:7px!important;max-width:320px!important;}
+ body.page-contact .contact-form .full{grid-column:auto!important;}
+ body.page-contact .contact-form textarea{height:60px!important;min-height:60px!important;max-height:60px!important;}
+ body.page-contact .navigation{width:44px!important;}
+}
+
+/* Mobile/tablet slide viewport: keep scrolling content clipped between the fixed
+   header/navigation and the bottom controls, matching Gallery's mobile behavior. */
+@media (max-width: 850px) {
+  html,
+  body {
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    overflow: hidden !important;
+  }
+
+  body {
+    display: grid !important;
+    place-items: center !important;
+    padding: 10px !important;
+  }
+
+  body .portfolio {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+  }
+
+  body .panel {
+    width: 100% !important;
+    height: calc(100vh - 20px) !important;
+    height: calc(100dvh - 20px) !important;
+    min-height: 0 !important;
+    max-height: calc(100vh - 20px) !important;
+    max-height: calc(100dvh - 20px) !important;
+    overflow: hidden !important;
+  }
+
+  /* The scroll box itself stays below the header and above the footer/controls.
+     Its contents are clipped at these edges instead of sliding over other UI. */
+  body:not(.page-gallery) .slide > .content {
+    position: absolute !important;
+    left: 5% !important;
+    right: 15% !important;
+    top: 135px !important;
+    bottom: 92px !important;
+    width: auto !important;
+    max-width: none !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 10px 24px 0 !important;
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin !important;
+    scrollbar-color: var(--orange) #171717 !important;
+  }
+
+  body:not(.page-gallery) .slide > .content::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  body:not(.page-gallery) .slide > .content::-webkit-scrollbar-thumb {
+    background: var(--orange);
+    border-radius: 8px;
+  }
+
+  /* Contact form uses the slide's single scroll area, not a nested scroll box. */
+  body.page-contact .slide > .content {
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+  }
+
+  body.page-contact .contact-form {
+    grid-template-columns: 1fr !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  body.page-contact .contact-form .full {
+    grid-column: auto !important;
+  }
+}
+
+@media (max-width: 700px) {
+  body:not(.page-gallery) .slide > .content {
+    left: 5% !important;
+    right: 15% !important;
+    top: 145px !important;
+    bottom: 100px !important;
+    padding-right: 8px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  body:not(.page-gallery) .slide > .content {
+    left: 5% !important;
+    right: 15% !important;
+    top: 145px !important;
+    bottom: 96px !important;
+  }
+}
+
+@media (max-height: 620px) and (max-width: 850px) {
+  body:not(.page-gallery) .slide > .content {
+    top: 122px !important;
+    bottom: 76px !important;
+  }
+
+  body.page-gallery .gallery-page-content {
+    top: 122px !important;
+    bottom: 76px !important;
+  }
+}
